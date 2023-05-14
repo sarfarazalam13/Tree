@@ -1,5 +1,3 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.Scanner;
 
 class tnode //tree node
@@ -37,6 +35,8 @@ public class alltree {
             root.right=insert();
             return root;
         }
+
+
         void preorder(tnode root)
         {
            if(root==null)
@@ -47,6 +47,8 @@ public class alltree {
            preorder(root.left);
            preorder(root.right);
         }
+
+
         void postorder(tnode node)
         {
             if(node==null)
@@ -57,6 +59,7 @@ public class alltree {
             postorder(node.right);
             System.out.println(node.val+" ");
         }
+
         void inorder(tnode node)
         {
             if(node==null)
@@ -67,14 +70,31 @@ public class alltree {
             System.out.println(node.val+ " ");
             inorder(node.right);
         }
+        tnode addarr(int[] arr,int x)
+        {
+            tnode root=null;
+            if(x<arr.length)
+            {
+                root=new tnode(arr[x]);
+                root.left=addarr(arr,2*x+1);
+                root.right=addarr(arr,2*x+2);
+
+
+            }
+            return root;
+        }
+
     }
 class Mainn
 {
     public static void main(String[] args) {
         alltree t=new alltree();
-        tnode x=t.insert();
-        t.inorder(x);
-        t.postorder(x);
+        //tnode x=t.insert();
+        //t.inorder(x);
+        //t.postorder(x);
+        int[] arr={ 1, 2, 3, 4, 5, 6, 6, 6, 6 };
+       tnode z= t.addarr(arr,0);
+       t.inorder(z);
 
     }
 }
