@@ -83,8 +83,21 @@ public class alltree {
             }
             return root;
         }
+        boolean symmetrictree(tnode root)
+        {
+           return  isSymmertric(root.left,root.right);
 
+        }
+
+            private boolean isSymmertric(tnode left, tnode right) {
+            if(left==null||right==null)
+            {
+                return right==left;
+            }
+            return left.val==right.val && isSymmertric(left.left,right.right)&& isSymmertric(left.right,right.left);
     }
+
+}
 class Mainn
 {
     public static void main(String[] args) {
@@ -92,9 +105,13 @@ class Mainn
         //tnode x=t.insert();
         //t.inorder(x);
         //t.postorder(x);
-        int[] arr={ 1, 2, 3, 4, 5, 6, 6, 6, 6 };
-       tnode z= t.addarr(arr,0);
-       t.inorder(z);
+        //int[] arr={ 1, 2, 3, 4, 5, 6, 6, 6, 6 };
+       //tnode z= t.addarr(arr,0);
+       //t.inorder(z);
+        int arr[]={1,2,2,3,4,4,3};
+        tnode x=t.addarr(arr,0);
+        System.out.println(t.symmetrictree(x));
+
 
     }
 }
