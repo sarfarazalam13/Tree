@@ -70,6 +70,8 @@ public class alltree {
             System.out.println(node.val+ " ");
             inorder(node.right);
         }
+
+
         tnode addarr(int[] arr,int x)
         {
             tnode root=null;

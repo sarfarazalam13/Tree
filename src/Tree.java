@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Tree {
-    node root;
     class node
     {
         node left;
